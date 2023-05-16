@@ -47,7 +47,7 @@ class DefaultAppointmentItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: Text(
@@ -70,7 +70,7 @@ class DefaultAppointmentItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       ' $startTime - ${minus}m',
@@ -78,14 +78,9 @@ class DefaultAppointmentItem extends StatelessWidget {
                       style: textStyle,
                     ),
                     Text(
-                      'Status: ',
+                      'Status: $item.subject',
                       style: textStyle,
                       maxLines: 1,
-                    ),
-                      Text(
-                      item.subject,
-                      maxLines: 1,
-                      style: textStyle,
                     ),
                     Text(
                       colResource.displayName,
