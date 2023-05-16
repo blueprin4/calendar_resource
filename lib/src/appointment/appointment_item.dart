@@ -46,28 +46,46 @@ class DefaultAppointmentItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  item.title,
-                  maxLines: 2,
-                  style: TextStyle(
-                    color: textColor,
-                    fontWeight: FontWeight.bold,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text(
+                        item.title,
+                        maxLines: 1,
+                        style: TextStyle(
+                          color: textColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    if (item.labels.isNotEmpty) ...[
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 4,
+                        children: item.labels
+                            .map((label) => LabelItem(label))
+                            .toList(),
+                      ),
+                    ],
+                  ],
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  ' $startTime - ${minus}m',
-                  maxLines: 1,
-                  style: textStyle,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      ' $startTime - ${minus}m',
+                      maxLines: 1,
+                      style: textStyle,
+                    ),
+                    Text(
+                      item.subject, // assuming Appointment has a subject field
+                      maxLines: 1,
+                      style: textStyle,
+                    ),
+                  ],
                 ),
-                if (item.labels.isNotEmpty && constraint.maxHeight > 85) ...[
-                  const SizedBox(height: 4),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 4,
-                    children: item.labels.map(LabelItem.new).toList(),
-                  ),
-                ],
               ],
             ),
             Positioned(
