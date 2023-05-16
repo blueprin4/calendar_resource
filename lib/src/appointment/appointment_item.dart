@@ -71,7 +71,7 @@ class DefaultAppointmentItem extends StatelessWidget {
                     ],
                   ],
                 ),
-                const SizedBox(height: 4),
+               // const SizedBox(height: 4),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
