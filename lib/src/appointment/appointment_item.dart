@@ -70,7 +70,7 @@ class DefaultAppointmentItem extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       ' $startTime - ${minus}m',
@@ -87,18 +87,7 @@ class DefaultAppointmentItem extends StatelessWidget {
                       maxLines: 1,
                       style: textStyle,
                     ),
-                  ],
-                ),
-              ],
-            ),
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Flexible(
-                    child: Text(
+                    Text(
                       colResource.displayName,
                       maxLines: 2,
                       style: TextStyle(
@@ -106,13 +95,9 @@ class DefaultAppointmentItem extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                  MultipleAvatar(
-                    images,
-                    color: color,
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
