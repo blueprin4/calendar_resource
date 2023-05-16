@@ -47,7 +47,7 @@ class DefaultAppointmentItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Expanded(
                       child: Text(
@@ -63,16 +63,14 @@ class DefaultAppointmentItem extends StatelessWidget {
                       Wrap(
                         spacing: 8,
                         runSpacing: 4,
-                        children: item.labels
-                            .map((label) => LabelItem(label))
-                            .toList(),
+                        children: item.labels.map((label) => LabelItem(label)).toList(),
                       ),
                     ],
                   ],
                 ),
                 const SizedBox(height: 4),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       ' $startTime - ${minus}m',
@@ -80,7 +78,12 @@ class DefaultAppointmentItem extends StatelessWidget {
                       style: textStyle,
                     ),
                     Text(
-                      item.subject, // assuming Appointment has a subject field
+                      'Status: ',
+                      style: textStyle,
+                      maxLines: 1,
+                    ),
+                      Text(
+                      item.subject,
                       maxLines: 1,
                       style: textStyle,
                     ),
