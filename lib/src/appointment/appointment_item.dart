@@ -18,7 +18,8 @@ class DefaultAppointmentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final startTime = DateFormat('hh:mm a').format(item.startTime).toLowerCase();
+    final startTime =
+        DateFormat('hh:mm a').format(item.startTime).toLowerCase();
     final minus = item.duration.inMinutes;
     final brightness = ThemeData.estimateBrightnessForColor(item.color);
     final isDark = brightness == Brightness.dark;
@@ -63,7 +64,9 @@ class DefaultAppointmentItem extends StatelessWidget {
                       Wrap(
                         spacing: 8,
                         runSpacing: 4,
-                        children: item.labels.map((label) => LabelItem(label)).toList(),
+                        children: item.labels
+                            .map((label) => LabelItem(label))
+                            .toList(),
                       ),
                     ],
                   ],
@@ -78,7 +81,7 @@ class DefaultAppointmentItem extends StatelessWidget {
                       style: textStyle,
                     ),
                     Text(
-                      'Status: $item.subject',
+                      'Status: ${item.subject}',
                       style: textStyle,
                       maxLines: 1,
                     ),
